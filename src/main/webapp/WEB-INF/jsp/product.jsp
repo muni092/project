@@ -44,11 +44,11 @@
 
 </form:select></h4></td></tr>
 
- 
+ </form:form>
 
 <tr><td><h4 style="color:red"><input type="submit" value="${bname}"/></h4></td></tr>
 
-</form:form>
+
 
 <table class="table table-bordered table-hover table-striped">
  <tr><th>Product Id</th>
