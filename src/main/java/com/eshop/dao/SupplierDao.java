@@ -19,18 +19,44 @@ public class SupplierDao {
 	{
 		Session s=sessionfactory.openSession();
 		Transaction t=s.beginTransaction();
-		s.save(sd);
+		s.saveOrUpdate(sd);
 		t.commit();
+		s.close();
 	}
 	public List retrieveSup()
 	{
 	Session s=sessionfactory.openSession();
 	Transaction t=s.beginTransaction();
-	String hql = "FROM SupplierDetails" ;
+	String hql = "from SupplierDetails" ;
 	Query query = s.createQuery(hql);
 	List result = query.list();
+	s.close();
     return result;
 
 	}
+	public void DeleteSupplier(int supplierId)
+	{
+
+		Session s=sessionfactory.openSession();
+		Transaction t=s.beginTransaction();
+		SupplierDetails c=(SupplierDetails)s.get(SupplierDetails.class,supplierId);
+
+		s.delete(c);
+		t.commit();
+		s.close();
+}
+	public SupplierDetails getSup(int supplierId)
+	{
+
+		Session s=sessionfactory.openSession();
+		Transaction t=s.beginTransaction();
+		SupplierDetails c=(SupplierDetails)s.get(SupplierDetails.class,supplierId);
+
+		
+		
+		s.close();
+		return c;
+
+}
 }
 

@@ -46,7 +46,7 @@
 
  
 
-<tr><td><h4 style="color:red"><input type="submit" value="SUBMIT"/></h4></td></tr>
+<tr><td><h4 style="color:red"><input type="submit" value="${bname}"/></h4></td></tr>
 
 </form:form>
 
@@ -68,7 +68,7 @@
                 <td>${product.supId}</td>
                 <td> ${product.catId}</td>
                     <td> ${product.productPrice}</td>
-                     <td><a href="UpdateAdmprod?adpid=${product.productId}">Edit</a></td>
+                     <td><a href="updateprod?uprod=${product.productId}">Edit</a></td>
                 <td><a href="deladprod?adpid=${product.productId}">Delete</a></td>
                 <td><img src="./resources/images/${product.productId}.jpg" height="50px" width="50px"/></td> 
 

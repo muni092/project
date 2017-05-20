@@ -18,16 +18,15 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="admn">ADMIN</a></li>
+      </ul>
      <ul class="nav navbar-nav">
       <li class="active"><a href="home">HOME</a></li>     
     </ul>
     
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">PRODUCTS<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-          <li><a href="#">Bags</a></li>
-         
-        </ul>
-    </li>
+    <ul class="nav navbar-nav">
+      <li  class="active"><a href="userpro">PRODUCTS</a></li>
+    
+    </ul>
       <ul class="nav navbar-nav navbar-right">
       <li><a href="reg"><span class="glyphicon glyphicon-user"></span> REGISTER</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>

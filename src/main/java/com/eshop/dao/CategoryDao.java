@@ -23,20 +23,44 @@ public class CategoryDao {
 	{
 		Session s=sessionfactory.openSession();
 		Transaction t=s.beginTransaction();
-		s.save(cd);
+		s.saveOrUpdate(cd);
 		t.commit();
+		s.close();
 	}
 		public List retrieveCategory()
 		{
 
 			Session s=sessionfactory.openSession();
 			Transaction t=s.beginTransaction();
-			String hql = "FROM CategoryDetails" ;
+			String hql = "from CategoryDetails" ;
 			Query query = s.createQuery(hql);
 			List result = query.list();
-
+s.close();
 				return result;
 	}
+		public void deleteCategory(int categoryId)
+		{
+
+			Session s=sessionfactory.openSession();
+			Transaction t=s.beginTransaction();
+			CategoryDetails c=(CategoryDetails)s.get(CategoryDetails.class,categoryId);
+
+			s.delete(c);
+			t.commit();
+			s.close();
+	}
+		public CategoryDetails getCat(int categoryId)
+		{
+
+			Session s=sessionfactory.openSession();
+			Transaction t=s.beginTransaction();
+			CategoryDetails c=(CategoryDetails)s.get(CategoryDetails.class,categoryId);
+
+			
+			
+			s.close();
+			return c;
+	}	
 }
 	
 

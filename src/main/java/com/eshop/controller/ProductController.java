@@ -3,6 +3,7 @@ package com.eshop.controller;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -66,47 +67,59 @@ public class ProductController {
 	mv.addObject("supData",l);
 	mv.addObject("catData",c);
 	mv.addObject("prodData",li);
+	mv.addObject("bname","addProduct");
 	return mv;
 	}
 	@RequestMapping(value="/prod",method=RequestMethod.POST)
 	public ModelAndView postProduct(@ModelAttribute("ProductDetails")ProductDetails p)
 	{
-		
-		List c=cd.retrieveCategory();
-		List l=sd.retrieveSup();
-		List li=pd.retrieveProduct();
-		//ProductDetails p1=new ProductDetails();
-		pd.insertProduct(p);
-		
-		ModelAndView mv=new ModelAndView("product","ProductDetails",p);
-		mv.addObject("supData",l);
-		mv.addObject("catData",c);
-		mv.addObject("prodData",li);
-
-		
-		
-		
 		String path="E:\\ekart\\ekart\\src\\main\\webapp\\resources\\images\\";
 		path=path+String.valueOf(p.getProductId())+".jpg";
 		MultipartFile fild=p.getPimage();
 		File f=new File(path);
-		
-	
-	try {
-		FileOutputStream fos=new  FileOutputStream(f);
-		BufferedOutputStream bos=new BufferedOutputStream(fos);
-		byte[] bt=fild.getBytes();
-		bos.write(bt);
-		bos.close();
 
-	} catch (Exception e) {
+		try {
+			FileOutputStream fos=new  FileOutputStream(f);
+			BufferedOutputStream bos=new BufferedOutputStream(fos);
+			byte[] bt=fild.getBytes();
+			bos.write(bt);
+			bos.close();
+
+		} catch (Exception e) {
+			
+		}
 		
+
+	   
+	pd.insertProduct(p);
+		List c=cd.retrieveCategory();
+		List l=sd.retrieveSup();
+		List li=pd.retrieveProduct();
+		ProductDetails p1=new ProductDetails();
+			
+		ModelAndView mv=new ModelAndView("product","ProductDetails",p1);
+		mv.addObject("supData",l);
+		mv.addObject("catData",c);
+		mv.addObject("prodData",li);
+		mv.addObject("bname","addProduct");
+return mv;
 	}
+	@RequestMapping(value="/updateprod",method=RequestMethod.GET)
+	public ModelAndView editProduct(@RequestParam("uprod")int id)
+	{
+		ProductDetails p=pd.getprod(id);
+		List c3=pd.retrieveProduct();
+		List c=cd.retrieveCategory();
+		List l=sd.retrieveSup();
+		
+	 ModelAndView mv=new ModelAndView("product","ProductDetails",p);
+	mv.addObject("prodData",c3);
+	mv.addObject("supData",l);
+	mv.addObject("catData",c);
+	mv.addObject("bname","updateProduct");
 	return mv;
-
-   }
-	
-	@RequestMapping("/deladprod")
+	}
+@RequestMapping("/deladprod")
 	public ModelAndView deleteProduct(@RequestParam("adpid")int prid)
 	{
 		pd.deleteProduct(prid);
@@ -114,15 +127,37 @@ public class ProductController {
 		List l=sd.retrieveSup();
 		List li=pd.retrieveProduct();
 		ProductDetails p1=new ProductDetails();
-		pd.insertProduct(p1);
+		//pd.insertProduct(p1);
 		
 		ModelAndView mv=new ModelAndView("product","ProductDetails",p1);
 		mv.addObject("supData",l);
 		mv.addObject("catData",c);
 		mv.addObject("prodData",li);
+		mv.addObject("bname","addProduct");
 	System.out.println("deleted successfull");
 		return mv;
 
 	   }
+@RequestMapping(value="/userpro",method=RequestMethod.GET)
+public ModelAndView userPro()
+{
+	ProductDetails p=new ProductDetails();
+	List li=pd.retrieveProduct();
+	ModelAndView mv=new ModelAndView("userproduct","ProductDetails",p);
+	mv.addObject("prodData",li);
+	return mv;
+}
+@RequestMapping(value="/getImage",method=RequestMethod.GET)
+public ModelAndView getImage(@RequestParam("gima")int id)
+{
+	ProductDetails p=pd.getprod(id);
+	List l=new ArrayList();
+	l.add(p);
+	
+ ModelAndView mv=new ModelAndView("single","ProductDetails",l);
+
+
+return mv;
+}
 }
 

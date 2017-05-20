@@ -20,6 +20,7 @@ import com.eshop.model.CategoryDetails;
 		Transaction t=s.beginTransaction();
 		s.save(a);
 		t.commit();
+		s.close();
 	}
 	}
 

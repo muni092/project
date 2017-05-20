@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.eshop.model.ProductDetails;
+import com.eshop.model.SupplierDetails;
 @Repository
 public class ProductDao {
 @Autowired
@@ -21,9 +22,9 @@ public class ProductDao {
 	{
 		Session s=sessionfactory.openSession();
 		Transaction t=s.beginTransaction();
-		s.save(pd);
+		s.saveOrUpdate(pd);
 		t.commit();
-		
+		s.close();
 	}
 	public List retrieveProduct()
 	{
@@ -33,7 +34,7 @@ public class ProductDao {
 		String hql = "from ProductDetails" ;
 		Query query = s.createQuery(hql);
 		List result = query.list();
-
+		s.close();
 			return result;
 }
 	
@@ -47,6 +48,19 @@ public class ProductDao {
 	t.commit();
 	s.close();
 }	
+	public ProductDetails getprod(int productId)
+	{
+
+		Session s=sessionfactory.openSession();
+		Transaction t=s.beginTransaction();
+		ProductDetails c=(ProductDetails)s.get(ProductDetails.class,productId);
+
+		
+		
+		s.close();
+		return c;
+
+}
 	}
 
 
