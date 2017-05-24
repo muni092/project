@@ -41,9 +41,20 @@ import org.springframework.web.multipart.MultipartFile;
 		@Transient
 		private MultipartFile pimage;
 		
+		@Column(name="stock")
+		private int stock;
 		
 		
 		
+		
+
+		public int getStock() {
+			return stock;
+		}
+
+		public void setStock(int stock) {
+			this.stock = stock;
+		}
 
 		public MultipartFile getPimage() {
 			return pimage;

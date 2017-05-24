@@ -55,7 +55,10 @@
 <th>Product name</th>
 <th>Supplier Id</th>
 <th>Category Id</th>
+
+<th>stock</th>
 <th>Price</th>
+
 <th>Edit</th>
 <th>Delete</th>
 <th>Image</th>
@@ -67,8 +70,24 @@
                  <td>${product.productName}</td>
                 <td>${product.supId}</td>
                 <td> ${product.catId}</td>
+                <td>${product.stock}</td>
                     <td> ${product.productPrice}</td>
                      <td><a href="updateprod?uprod=${product.productId}">Edit</a></td>
+                <td><a href="deladprod?adpid=${product.productId}">Delete</a></td>
+                <td><img src="./resources/images/${product.productId}.jpg" height="50px" width="50px"/></td> 
+
+</tr>
+</core:forEach>
+<core:forEach items="${prodData}" var="product">
+<tr class="success" >
+
+                <td>${product.productId}</td> 
+                 <td>${product.productName}</td>
+                <td>${product.supId}</td>
+                <td> ${product.catId}</td>
+                <td>${product.stock}</td>
+                    <td> ${product.productPrice}</td>
+                     <td><a href="addcart?pid=${product.productId}">Edit</a></td>
                 <td><a href="deladprod?adpid=${product.productId}">Delete</a></td>
                 <td><img src="./resources/images/${product.productId}.jpg" height="50px" width="50px"/></td> 
 
@@ -78,6 +97,6 @@
 
 </table>
 
-
+<%@include file="footer.jsp" %>
 </body>
 </html>

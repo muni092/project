@@ -29,6 +29,20 @@ public class Admin {
 	return  new ModelAndView("adminsuccess","AdminDetails",a);
 	
 	}
+	@RequestMapping(value="/about",method=RequestMethod.GET)
+	public ModelAndView about()
+	{
+
+	return  new ModelAndView("about");
+	}
+	
+	@RequestMapping(value="/contact",method=RequestMethod.GET)
+	public ModelAndView contact()
+	{
+
+	return  new ModelAndView("contactus");
+	}
+	
 
 }
 

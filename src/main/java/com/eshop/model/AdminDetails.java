@@ -20,11 +20,13 @@ import org.springframework.stereotype.Component;
 		@GeneratedValue
 		@Column(name = "product")
 		private String product;
+		
 		@Column(name = "category")
 		private String category;
 		
 		@Column(name = " suppliers")
 		private String suppliers;
+		
 
 		public String getProduct() {
 			return product;

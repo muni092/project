@@ -37,6 +37,7 @@ public class UserDetails implements Serializable {
 	
 	@Transient
 	private String role;
+	
 	@Transient
 	private boolean enabled;
 	

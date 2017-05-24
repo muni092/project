@@ -29,7 +29,9 @@
     </ul>
       <ul class="nav navbar-nav navbar-right">
       <li><a href="reg"><span class="glyphicon glyphicon-user"></span> REGISTER</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+      <li><a href="contact"><span class="glyphicon glyphicon-user"></span> CONTACT US</a></li>
+      <li><a href="about"><span class="glyphicon glyphicon-user"></span> ABOUT</a></li>
     </ul>
   
     </div>

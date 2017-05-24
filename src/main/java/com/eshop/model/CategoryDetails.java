@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 		@GeneratedValue
 		@Column(name = "CategoryId")
 		private int categoryId;
+		
 		@Column(name = "CategoryName")
 		private String categoryName;
 		

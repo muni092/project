@@ -8,5 +8,6 @@
 </head>
 <body>
 <%@include file="admin.jsp" %>
+<%@include file="footer.jsp" %>
 </body>
 </html>

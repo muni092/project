@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 	public class SupplierDetails implements Serializable {
 		
 		@Id
-		@GeneratedValue
+		
 		@Column(name = "SupplierId")
 		private int supplierId;
 		@Column(name = "SupplierName")

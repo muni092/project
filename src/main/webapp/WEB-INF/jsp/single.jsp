@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@include file="userHeader.jsp" %>
-<form:form class="form-horizontal" method="post" action="product"	commandName="ProductDetails" enctype="multipart/form-data">
+
 <div>
 <table class="table table-bordered table-hover table-striped">
  <tr><th>Product Id</th>
@@ -18,8 +18,9 @@
 <th>Supplier Id</th>
 <th>Category Id</th>
 <th>Price</th>
-
+<th>Stock</th>
 <th>Image</th>
+
 </tr> 
 <core:forEach items="${ProductDetails}" var="product">
 <tr class="success" >
@@ -29,17 +30,19 @@
                 <td>${product.supId}</td>
                 <td> ${product.catId}</td>
                     <td> ${product.productPrice}</td>
-                <td><a href="getImage?gima="${product.productId}">
-                   <img src="./resources/images/${product.productId}.jpg" height="200px" width="200px"/></a></td>
-
+                    <td> ${product.stock}</td>
+                
+                   <td><img src="./resources/images/${product.productId}.jpg" height="200px" width="200px"/></td>
+                     <td><a href="addCart?acid=${product.productId}">AddtoCart</a></td>
 </tr>
 
 </core:forEach>
 
 
+
 </table>
 </div>
-</form:form>
+
 
 
 </body>
