@@ -12,7 +12,7 @@ import com.eshop.dao.AdminDao;
 import com.eshop.model.CategoryDetails;
 import com.eshop.model.AdminDetails;
 @Controller
-public class Admin {
+public class AdminController {
 	@Autowired
 	AdminDao ad;
 	@RequestMapping(value="/admn",method=RequestMethod.GET)

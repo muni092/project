@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.eshop.dao.RegDao;
+import com.eshop.model.UserCredential;
 import com.eshop.model.UserDetails;
 
 @Controller
-public class Register {
+public class RegisterController {
 	@Autowired
 	RegDao rd;
 	@RequestMapping(value="/reg",method=RequestMethod.GET)
@@ -33,8 +34,17 @@ public class Register {
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public ModelAndView reg2(@ModelAttribute("UserDetails")UserDetails u)
 	{
+		
+		  
+		 UserCredential uc=new UserCredential();
+		  uc.setUserName(u.getUserName());
+		  uc.setPassword(u.getPassword());
+		  uc.setRole("ROLE_USER");
+		  uc.setEnabled(true);
+		  rd.insertUserCredential(uc);
 		rd.insertUser(u);
-	return  new ModelAndView("register1","UserDetails",u);
+		ModelAndView mv=new ModelAndView("register1","UserDetails",u);
+	return mv;
 	
 	}
 

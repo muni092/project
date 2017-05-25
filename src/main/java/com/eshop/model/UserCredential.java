@@ -1,51 +1,39 @@
 package com.eshop.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.springframework.stereotype.Component;
+@Entity
+@Table
+@Component
 public class UserCredential {
 
 	
 	@Id
-	@GeneratedValue
-
-	@Column(name = "userName")
-	private String username;
+    @Column(name = "UserName")
+	private String userName;
 	
-	@Column(name = "password")
+	@Column(name = "Password")
 	private String password;
 	
-	@Transient
+	@Column(name = "Enabled")
 	private boolean enabled;
 	
-	@Transient
+	@Column(name = "Role")
 	private String role;
-	
-	public String getUsername() {
-		return username;
+
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-
-	
-	
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	
-	
-
-	
 
 	public String getPassword() {
 		return password;
@@ -62,5 +50,16 @@ public class UserCredential {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+
+	
 	
 }

@@ -15,7 +15,7 @@
 </tr>
 <table>
 
-<tr><td><h4 style="color:orange">UserName:</td><td><form:input path="username"/></h4></td></tr>
+<tr><td><h4 style="color:orange">UserName:</td><td><form:input path="userName"/></h4></td></tr>
 
 <tr><td><h4 style="color:orange">Password:</td><td><form:password path="password"/></h4></td></tr>
 <tr><td><h4 style="color:red"><input type="submit" value="LOGIN"></h4></td></tr>

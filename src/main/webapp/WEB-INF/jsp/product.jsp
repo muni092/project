@@ -53,6 +53,7 @@
 <table class="table table-bordered table-hover table-striped">
  <tr><th>Product Id</th>
 <th>Product name</th>
+
 <th>Supplier Id</th>
 <th>Category Id</th>
 
